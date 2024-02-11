@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    --color1: #FFF;
+    --color2: #000000;
+}
+
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    background-color: var(--color2);
+    padding: 12px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.logo h1 {
+    color: white;
+    margin-left: 10px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu ul {
+    list-style: none; /* Remove dots from the list */
+}
+
+.menu li {
+    padding-left: 30px;
+}
+
+.menu li a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color1);
+    text-align: center;
+    transition: 0.15s ease-in-out;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color1);
+    transition: 0.15s ease-in-out;
+}
+
+.menu li a:hover:after {
+    width: 100%;
+}
+
+.open-menu {
+    position: absolute;
+    color: var(--color1);
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold; /* Make the close menu icon bold */
+    display: none;
+}
+
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+#check {
+    display: none;
+}
+
+/* Your existing CSS styles here */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 700px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.search-bar input {
+    border: none;
+    padding: 10px;
+    width: 500000px;
+    color: #000000;
+    background-color: transparent;
+    outline: none;
+}
+
+.search-bar button {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 0 20px 20px 0;
+}
+
+/* Your existing CSS styles here */
+@media (max-width: 610px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+        background-color: rgba(12, 12, 12, 0.9); /* Transparent with blur effect */
+        backdrop-filter: blur(5px);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .menu li {
+        margin-top: 40px;
+    }
+
+    .menu li a {
+        padding: 10px;
+    }
+
+    .search-bar {
+        width: 100%; /* Make search bar take full width on mobile */
+        margin: 20px 25px; /* Add margin to separate it from the menu */
+    }
+
+    .search-bar input {
+        width: calc(100% - 40px); /* Adjust width of input to accommodate button */
+    }
+
+    .search-bar button {
+        width: 40px; /* Set width of button */
+        background-color: transparent;
+        color: #fff;
+    }
+
+    .open-menu {
+        display: block;
+    }
+
+    #check:checked ~ .menu {
+        right: 0;
+    }
+
+}
